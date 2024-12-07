@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tutorial_flutter/pages/counter_page.dart';
+import 'package:tutorial_flutter/pages/home_page.dart';
+import 'package:tutorial_flutter/pages/setting_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,6 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: CounterPage(),
+      routes: {
+        '/homepage': (context) => HomePage(),
+        '/settingpage': (context) => SettingPage(),
+      },
     );
   }
 }
