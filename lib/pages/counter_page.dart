@@ -16,6 +16,18 @@ class _CounterPageState extends State<CounterPage> {
     });
   }
 
+  String message = "";
+
+  void userTap() {
+    setState(() {
+      if (message == 'Hello world') {
+        message = '';
+      } else {
+        message = 'Hello world';
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +36,6 @@ class _CounterPageState extends State<CounterPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Stack to overlay containers
             Stack(
               alignment: Alignment.center,
               children: [
@@ -53,11 +64,14 @@ class _CounterPageState extends State<CounterPage> {
                   width: 10,
                   color: const Color.fromARGB(221, 1, 6, 0),
                 ),
+                Container(
+                  height: 2,
+                  width: 2,
+                  color: const Color.fromARGB(221, 6, 246, 6),
+                ),
               ],
             ),
-            // Space between Stack and Button
-            SizedBox(height: 30),
-            // Text and Button outside of Stack
+            SizedBox(height: 20),
             Text(
               'You pushed the button many times',
               style: TextStyle(fontSize: 18, color: Colors.black),
@@ -73,7 +87,7 @@ class _CounterPageState extends State<CounterPage> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(199, 6, 55, 7),
-                foregroundColor: const Color.fromARGB(255, 72, 68, 3),
+                foregroundColor: const Color.fromARGB(255, 249, 249, 244),
                 padding: EdgeInsets.symmetric(vertical: 12, horizontal: 32),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -87,6 +101,26 @@ class _CounterPageState extends State<CounterPage> {
                 ),
               ),
             ),
+            SizedBox(height: 20),
+            GestureDetector(
+              onTap: userTap,
+              child: Container(
+                height: 200,
+                width: 200,
+                color: Colors.green,
+                child: Center(child: Text('Tap me!')),
+              ),
+            ),
+            if (message.isNotEmpty) SizedBox(height: 20),
+            if (message.isNotEmpty)
+              Text(
+                message,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.green,
+                ),
+              ),
           ],
         ),
       ),
