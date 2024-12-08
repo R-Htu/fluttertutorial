@@ -10,12 +10,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      Container(
-        height: 300,
-        width: 300,
-        color: Colors.black87,
-      )
-    ]);
+    return Scaffold(
+      body: Column(
+        children: const [Text('hOME PAGE')],
+      ),
+    );
   }
 }
