@@ -3,8 +3,6 @@ import 'package:tutorial_flutter/pages/counter_page.dart';
 import 'package:tutorial_flutter/pages/home_page.dart';
 import 'package:tutorial_flutter/pages/setting_page.dart';
 
-// Flutter tutorial for my students
-
 /*const MaterialColor customColor = MaterialColor(
   _customColorPrimaryValue,
   <int, Color>{
