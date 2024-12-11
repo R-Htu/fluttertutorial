@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tutorial_flutter/pages/counter_page.dart';
 import 'package:tutorial_flutter/pages/home_page.dart';
 import 'package:tutorial_flutter/pages/setting_page.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 /*const MaterialColor customColor = MaterialColor(
   _customColorPrimaryValue,
@@ -21,7 +22,12 @@ import 'package:tutorial_flutter/pages/setting_page.dart';
 
 const int _customColorPrimaryValue = 0xFF2C5601; // The main color value
 */
-void main() {
+void main() async {
+  WidgetsFlutterBinding
+      .ensureInitialized(); // Ensure Flutter bindings are initialized
+  await Hive.initFlutter(); // Initialize Hive
+  await Hive.openBox(
+      'mybox'); // Open the box, no need to store it in a variable here
   runApp(MyApp());
 }
 
@@ -32,11 +38,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CounterPage(),
+      home:
+          CounterPage(), // Replace with HomePage() if that's the starting screen
       theme: ThemeData(
-        //colorScheme: ColorScheme.fromSwatch(
         primarySwatch: Colors.green,
-        //  textTheme: GoogleFonts.emilysCandyTextTheme(),
       ),
       routes: {
         '/homepage': (context) => HomePage(),
