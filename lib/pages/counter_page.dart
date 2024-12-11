@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tutorial_flutter/component/app_drawer.dart';
 import 'package:tutorial_flutter/component/stack_widget.dart';
 import 'package:tutorial_flutter/component/tap_widget.dart';
+import 'package:tutorial_flutter/component/my_button.dart';
+import 'package:tutorial_flutter/ecommerce/intro_page.dart';
 import 'package:tutorial_flutter/pages/to_do_list_page.dart';
 
 //‌ counter လို့ ‌ေရးထားတွေကို အရင်လုပ်နေ်
@@ -28,8 +30,13 @@ class _CounterPageState extends State<CounterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          //backgroundColor: Color.fromARGB(121, 44, 86, 1),
-          ),
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
+        title: const Text('My Home Page'),
+        iconTheme: const IconThemeData(
+          color: Color.fromARGB(255, 248, 252, 248),
+        ),
+      ),
+
       // drawer နဲ့ဆိုင်တာကို app_drawer.dart မှာ သွားကြည့်
       drawer: AppDrawer(),
       body: Center(
@@ -56,7 +63,31 @@ class _CounterPageState extends State<CounterPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
+                MyButton(
+                  text: 'Counter',
+                  onPressed: increment,
+                ),
+                SizedBox(width: 12),
+                MyButton(
+                  text: 'Routine',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ToDoListPage()),
+                    );
+                  },
+                ),
+                SizedBox(width: 12),
+                MyButton(
+                  text: 'E-shoes',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => IntroPage()),
+                    );
+                  },
+                ),
+                /*  ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color.fromARGB(199, 6, 55, 7),
                     foregroundColor: const Color.fromARGB(255, 249, 249, 244),
@@ -92,12 +123,12 @@ class _CounterPageState extends State<CounterPage> {
                     );
                   },
                   child: Text(
-                    'To do list',
+                    'Daily Routine',
                     style: TextStyle(
                       fontSize: 18,
                     ),
                   ),
-                ),
+                ),*/
               ],
             ),
             //counter အဆုံး

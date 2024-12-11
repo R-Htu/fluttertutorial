@@ -16,8 +16,8 @@ class _AppDrawerState extends State<AppDrawer> {
         children: [
           const DrawerHeader(
             child: Icon(
-              Icons.favorite,
-              size: 35,
+              Icons.music_note,
+              size: 45,
             ),
           ),
           ListTile(
@@ -31,6 +31,20 @@ class _AppDrawerState extends State<AppDrawer> {
           ListTile(
             leading: const Icon(Icons.settings),
             title: const Text('S E T T I N G S'),
+            onTap: () {
+              Navigator.pushNamed(context, '/settingpage');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.face),
+            title: const Text('P H O T O S'),
+            onTap: () {
+              Navigator.pushNamed(context, '/settingpage');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.folder),
+            title: const Text('C O L L E C T I O N S'),
             onTap: () {
               Navigator.pushNamed(context, '/settingpage');
             },

@@ -29,9 +29,14 @@ class _TapWidgetState extends State<TapWidget> {
         GestureDetector(
           onTap: userTap,
           child: Container(
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 4, 28, 9),
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(50),
+                  bottomLeft: Radius.circular(50)),
+            ),
             height: 200,
             width: 200,
-            color: const Color.fromARGB(255, 4, 28, 9),
             child: Center(
               child: Text(
                 'Tap me!',
