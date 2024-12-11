@@ -30,10 +30,124 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 113, 138, 114),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Builder(
+          builder: (context) => IconButton(
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              icon: const Icon(
+                Icons.menu,
+                color: Colors.black,
+              )),
+        ),
+      ),
+      drawer: Drawer(
+        backgroundColor: const Color.fromARGB(255, 252, 248, 248),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                DrawerHeader(
+                    child: Image.asset(
+                  'lib/images/logo.jpg',
+                  //color: Colors.green,
+                )),
+                // Divider(
+                //color: Colors.green,
+                //)
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.home,
+                      color: const Color.fromARGB(255, 13, 13, 13),
+                    ),
+                    title: Text(
+                      'Home',
+                      style: TextStyle(
+                          color: const Color.fromARGB(255, 8, 8, 8),
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.info,
+                      color: const Color.fromARGB(255, 10, 10, 10),
+                    ),
+                    title: Text(
+                      'About',
+                      style: TextStyle(
+                          color: const Color.fromARGB(255, 8, 8, 8),
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.card_membership,
+                      color: const Color.fromARGB(255, 10, 10, 10),
+                    ),
+                    title: Text(
+                      'Member',
+                      style: TextStyle(
+                          color: const Color.fromARGB(255, 8, 8, 8),
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.reviews,
+                      color: const Color.fromARGB(255, 10, 10, 10),
+                    ),
+                    title: Text(
+                      'Review',
+                      style: TextStyle(
+                          color: const Color.fromARGB(255, 8, 8, 8),
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, bottom: 30),
+              child: ListTile(
+                leading: Icon(
+                  Icons.logout,
+                  color: const Color.fromARGB(255, 10, 10, 10),
+                ),
+                title: Text(
+                  'Logout',
+                  style: TextStyle(
+                      color: const Color.fromARGB(255, 8, 8, 8),
+                      fontSize: 19,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavBar(
         onTabChange: (index) => navigateBottomBar(index),
       ),
-      body: _pages[_selectedIndex],
     );
   }
 }

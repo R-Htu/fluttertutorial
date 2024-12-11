@@ -19,7 +19,7 @@ class IntroPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 160),
+                padding: const EdgeInsets.only(top: 1),
                 child: Image.asset(
                   'lib/images/logo.jpg',
                   height: 240,
