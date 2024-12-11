@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tutorial_flutter/ecommerce/home_page.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -7,10 +8,15 @@ class IntroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        automaticallyImplyLeading: false,
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 160),
@@ -26,8 +32,9 @@ class IntroPage extends StatelessWidget {
               Text(
                 'Just Do it',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
                 ),
               ),
               const SizedBox(
@@ -38,13 +45,36 @@ class IntroPage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.green[300],
+                  fontStyle: FontStyle.italic,
                 ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
                 height: 30,
               ),
-              ElevatedButton(onPressed: () {}, child: Text('Show Now'))
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                ),
+                child: Container(
+                    padding: EdgeInsets.all(19.0),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 2, 3, 2),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Shop Now',
+                        style: TextStyle(
+                          // fontStyle: FontStyle.italic,
+                          color: const Color.fromARGB(255, 160, 241, 202),
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    )),
+              ),
             ],
           ),
         ),

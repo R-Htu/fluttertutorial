@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tutorial_flutter/pages/counter_page.dart';
-import 'package:tutorial_flutter/pages/home_page.dart';
+import 'package:tutorial_flutter/ecommerce/home_page.dart';
 import 'package:tutorial_flutter/pages/setting_page.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
