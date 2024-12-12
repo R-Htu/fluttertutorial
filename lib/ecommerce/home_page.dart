@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.only(left: 12.0),
                 child: const Icon(
                   Icons.menu,
-                  color: Color.fromARGB(255, 251, 249, 249),
+                  color: Color.fromARGB(255, 250, 249, 237),
                 ),
               )),
         ),

@@ -3,7 +3,8 @@ import 'package:tutorial_flutter/models/shoe.dart';
 
 class ShoeTile extends StatelessWidget {
   Shoe shoe;
-  ShoeTile({super.key, required this.shoe});
+  void Function()? onTap;
+  ShoeTile({super.key, required this.shoe, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -23,36 +24,42 @@ class ShoeTile extends StatelessWidget {
             child: Image.asset(shoe.imagePath),
           ),
           //second description
-          Text(
-            shoe.description,
-            style: TextStyle(
-              color: const Color.fromARGB(255, 252, 161, 5),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
+              shoe.description,
+              style: TextStyle(
+                color: const Color.fromARGB(255, 108, 136, 58),
+              ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 1.0),
+            padding: const EdgeInsets.only(right: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 90, 94, 61),
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(12),
-                            bottomRight: Radius.circular(12))),
-                    child: Icon(
-                      Icons.add,
-                      color: const Color.fromARGB(255, 245, 236, 3),
-                    )),
+                GestureDetector(
+                  onTap: onTap,
+                  child: Container(
+                      padding: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 143, 172, 48),
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(12),
+                              bottomLeft: Radius.circular(12))),
+                      child: Icon(
+                        Icons.add,
+                        color: const Color.fromARGB(255, 249, 249, 238),
+                      )),
+                ),
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
                       shoe.name,
                       style: TextStyle(
-                        color: const Color.fromARGB(255, 246, 210, 49),
+                        color: const Color.fromARGB(255, 246, 231, 231),
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       ),
@@ -61,9 +68,9 @@ class ShoeTile extends StatelessWidget {
                       height: 6,
                     ),
                     Text(
-                      '\$' + shoe.price,
+                      '\$${shoe.price}',
                       style: TextStyle(
-                        color: const Color.fromARGB(255, 162, 157, 82),
+                        color: const Color.fromARGB(255, 143, 172, 48),
                         fontSize: 15,
                       ),
                     ),

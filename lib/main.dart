@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tutorial_flutter/models/cart.dart';
 import 'package:tutorial_flutter/pages/counter_page.dart';
 import 'package:tutorial_flutter/ecommerce/home_page.dart';
 import 'package:tutorial_flutter/pages/setting_page.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:provider/provider.dart';
 
 /*const MaterialColor customColor = MaterialColor(
   _customColorPrimaryValue,
@@ -36,17 +38,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home:
-          CounterPage(), // Replace with HomePage() if that's the starting screen
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      routes: {
-        '/homepage': (context) => HomePage(),
-        '/settingpage': (context) => SettingPage(),
-      },
-    );
+    return ChangeNotifierProvider(
+        create: (context) => Cart(),
+        builder: (context, child) => MaterialApp(
+              debugShowCheckedModeBanner: false,
+              home:
+                  CounterPage(), // Replace with HomePage() if that's the starting screen
+              theme: ThemeData(
+                primarySwatch: Colors.green,
+              ),
+              routes: {
+                '/homepage': (context) => HomePage(),
+                '/settingpage': (context) => SettingPage(),
+              },
+            ));
   }
 }
