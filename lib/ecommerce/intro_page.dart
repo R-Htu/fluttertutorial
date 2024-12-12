@@ -9,7 +9,7 @@ class IntroPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
       ),
       body: Center(
@@ -18,13 +18,10 @@ class IntroPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 1),
-                child: Image.asset(
-                  'lib/images/logo.jpg',
-                  height: 240,
-                  // width: 240,
-                ),
+              Image.asset(
+                'lib/images/logo.jpg',
+                height: 300,
+                // width: 240,
               ),
               const SizedBox(
                 height: 40,

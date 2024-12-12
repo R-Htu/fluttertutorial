@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 113, 138, 114),
+      backgroundColor: const Color.fromARGB(255, 0, 9, 4),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -38,9 +38,12 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 Scaffold.of(context).openDrawer();
               },
-              icon: const Icon(
-                Icons.menu,
-                color: Colors.black,
+              icon: Padding(
+                padding: const EdgeInsets.only(left: 12.0),
+                child: const Icon(
+                  Icons.menu,
+                  color: Color.fromARGB(255, 251, 249, 249),
+                ),
               )),
         ),
       ),
@@ -64,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                   child: ListTile(
                     leading: Icon(
                       Icons.home,
-                      color: const Color.fromARGB(255, 13, 13, 13),
+                      color: const Color.fromARGB(255, 251, 229, 229),
                     ),
                     title: Text(
                       'Home',
