@@ -15,12 +15,23 @@ class _ShopPageState extends State<ShopPage> {
   void addShoeToCart(Shoe shoe) {
     Provider.of<Cart>(context, listen: false).addItemToCart(shoe);
     showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-              backgroundColor: const Color.fromARGB(255, 204, 180, 3),
-              title: Text('Successfully added!'),
-              content: Text('Check your cart'),
-            ));
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: const Color.fromARGB(255, 90, 77, 15),
+        title: Text(
+          'Successfully added!',
+          style: TextStyle(
+            color: Colors.white, // Title text color set to white
+          ),
+        ),
+        content: Text(
+          'Check your cart',
+          style: TextStyle(
+            color: Colors.white, // Content text color set to white
+          ),
+        ),
+      ),
+    );
   }
 
   @override

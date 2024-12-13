@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tutorial_flutter/component/subeco/cart_item.dart';
+import 'package:tutorial_flutter/models/cart.dart';
+import 'package:tutorial_flutter/models/shoe.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -10,8 +14,33 @@ class CartPage extends StatefulWidget {
 class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Cart'),
-    );
+    return Consumer<Cart>(
+        builder: (context, value, child) => Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'My Cart',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 21,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                Expanded(
+                    child: ListView.builder(
+                  itemCount: value.getUserCart().length,
+                  itemBuilder: (context, index) {
+                    Shoe individualShoe = value.getUserCart()[index];
+
+                    return CartItem(
+                      shoe: individualShoe,
+                    );
+                  },
+                ))
+              ],
+            ));
   }
 }

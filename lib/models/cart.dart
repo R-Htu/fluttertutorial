@@ -37,6 +37,11 @@ class Cart extends ChangeNotifier {
     return shoeShop;
   }
 
+  // Get the list of shoes in the user's cart
+  List<Shoe> getUserCart() {
+    return userCart;
+  }
+
   // add items to cart
   void addItemToCart(Shoe shoe) {
     userCart.add(shoe);
